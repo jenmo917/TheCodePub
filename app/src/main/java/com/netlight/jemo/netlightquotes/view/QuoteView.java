@@ -10,10 +10,10 @@ import com.netlight.jemo.netlightquotes.R;
 
 import model.dto.QuoteDto;
 
-/**
- * Created by n06963 on 11/09/15.
- */
 public class QuoteView extends RelativeLayout {
+
+    private TextView textViewQuoteByLine;
+    private TextView textViewQuote;
 
     public QuoteView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -33,13 +33,12 @@ public class QuoteView extends RelativeLayout {
 
     private void init() {
         inflate(getContext(), R.layout.view_quote, this);
+        textViewQuote = (TextView) findViewById(R.id.textViewQuote);
+        textViewQuoteByLine = (TextView) findViewById(R.id.textViewQuoteByLine);
+    }
 
-        QuoteDto quoteDto = new QuoteDto("Blessed is the man, who having nothing to say, abstains from giving wordy evidence of the fact.", "George Eliot", "Famous");
-
-        TextView textViewQuote = (TextView) findViewById(R.id.textViewQuote);
-        TextView textViewQuoteByLine = (TextView) findViewById(R.id.textViewQuoteByLine);
-
-        textViewQuote.setText(quoteDto.getText());
-        textViewQuoteByLine.setText(quoteDto.getSource());
+    public void bindTo(QuoteDto quoteDto) {
+        textViewQuote.setText(quoteDto.getQuote());
+        textViewQuoteByLine.setText(quoteDto.getAuthor());
     }
 }

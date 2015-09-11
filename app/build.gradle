@@ -17,10 +17,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Test framework
     testCompile 'junit:junit:4.12'
+
+    // Support for older Android versions
     compile 'com.android.support:appcompat-v7:23.0.0'
+
+    // For calling rest services
+    compile 'com.squareup.retrofit:retrofit:2.0.0-beta1'
+
+    //For parsing json
+    compile 'com.squareup.retrofit:converter-jackson:2.0.0-beta1'
 }
