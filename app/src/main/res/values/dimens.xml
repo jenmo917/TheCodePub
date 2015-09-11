@@ -1,0 +1,27 @@
+<resources>
+
+    <!-- Common dimens -->
+    <dimen name="margin_xxxl">50dp</dimen>
+    <dimen name="margin_xxl">40dp</dimen>
+    <dimen name="margin_xl">30dp</dimen>
+    <dimen name="margin_l">20dp</dimen>
+    <dimen name="margin_m">15dp</dimen>
+    <dimen name="margin_s">11dp</dimen>
+    <dimen name="margin_xs">8dp</dimen>
+    <dimen name="margin_xxs">6dp</dimen>
+    <dimen name="margin_zero">0dp</dimen>
+
+    <dimen name="font_size_xxl">34sp</dimen>
+    <dimen name="font_size_xl">24sp</dimen>
+    <dimen name="font_size_l">20sp</dimen>
+    <dimen name="font_size_m">18sp</dimen>
+    <dimen name="font_size_ms">16sp</dimen>
+    <dimen name="font_size_s">14sp</dimen>
+    <dimen name="font_size_xs">12sp</dimen>
+    <dimen name="font_size_xxs">11sp</dimen>
+
+    <dimen name="line_spacing_metadata">7dp</dimen>
+    <dimen name="line_spacing_quote">10dp</dimen>
+    <dimen name="view_quote_width">300dp</dimen>
+
+</resources>

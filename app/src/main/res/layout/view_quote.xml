@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/view_quote_width"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imageViewQuote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/image_quote"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        style="@style/Quote"
+        android:id="@+id/textViewQuote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageViewQuote"
+        />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutQuoteByLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/textViewQuote"
+        android:layout_alignParentRight="true"
+    >
+
+    <ImageView
+        android:id="@+id/imageViewQuoteByLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/image_quote_byline"/>
+
+    <TextView
+        style="@style/QuoteByLine"
+        android:id="@+id/textViewQuoteByLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</RelativeLayout>
