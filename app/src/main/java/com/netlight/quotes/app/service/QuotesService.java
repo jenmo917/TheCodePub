@@ -1,9 +1,11 @@
-package service;
+package com.netlight.quotes.app.service;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.netlight.quotes.app.model.dto.QuoteDto;
+import com.netlight.quotes.app.service.webservice.QuotesApi;
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -11,11 +13,9 @@ import com.squareup.okhttp.Response;
 
 import java.io.IOException;
 
-import model.dto.QuoteDto;
 import retrofit.Callback;
 import retrofit.JacksonConverterFactory;
 import retrofit.Retrofit;
-import service.webservice.QuotesApi;
 
 public class QuotesService {
 

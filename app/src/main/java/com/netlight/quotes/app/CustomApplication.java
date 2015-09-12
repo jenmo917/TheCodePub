@@ -1,7 +1,7 @@
-package com.netlight.jemo;
+package com.netlight.quotes.app;
 
 import android.app.Application;
-import service.QuotesService;
+import com.netlight.quotes.app.service.QuotesService;
 
 public class CustomApplication extends Application {
     QuotesService quotesService;

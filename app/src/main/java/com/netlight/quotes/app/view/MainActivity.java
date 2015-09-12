@@ -1,4 +1,4 @@
-package com.netlight.jemo.netlightquotes.view;
+package com.netlight.quotes.app.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,12 +7,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.netlight.jemo.CustomApplication;
-import com.netlight.jemo.netlightquotes.R;
+import com.netlight.quotes.app.CustomApplication;
+import com.netlight.quotes.app.model.dto.QuoteDto;
+import com.netlight.quotes.app.service.QuotesService;
+import com.netlight.quotes.app.R;
 
-import model.dto.QuoteDto;
 import retrofit.Callback;
-import service.QuotesService;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.netlight.jemo.netlightquotes.view.QuoteView
+    <com.netlight.quotes.app.view.QuoteView
         android:id="@+id/quoteView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

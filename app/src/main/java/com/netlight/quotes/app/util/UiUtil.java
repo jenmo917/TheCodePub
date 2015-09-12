@@ -1,4 +1,4 @@
-package model.dto.util;
+package com.netlight.quotes.app.util;
 
 import android.content.Context;
 import android.graphics.Point;

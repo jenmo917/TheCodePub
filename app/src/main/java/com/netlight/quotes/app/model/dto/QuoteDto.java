@@ -1,4 +1,4 @@
-package model.dto;
+package com.netlight.quotes.app.model.dto;
 
 public class QuoteDto {
     private String author;

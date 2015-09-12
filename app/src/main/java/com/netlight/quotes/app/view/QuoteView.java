@@ -1,4 +1,4 @@
-package com.netlight.jemo.netlightquotes.view;
+package com.netlight.quotes.app.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -6,9 +6,9 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.netlight.jemo.netlightquotes.R;
+import com.netlight.quotes.app.R;
 
-import model.dto.QuoteDto;
+import com.netlight.quotes.app.model.dto.QuoteDto;
 
 public class QuoteView extends RelativeLayout {
 

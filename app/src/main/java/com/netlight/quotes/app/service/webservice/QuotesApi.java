@@ -1,6 +1,6 @@
-package service.webservice;
+package com.netlight.quotes.app.service.webservice;
 
-import model.dto.QuoteDto;
+import com.netlight.quotes.app.model.dto.QuoteDto;
 import retrofit.Call;
 import retrofit.http.GET;
 import retrofit.http.Headers;

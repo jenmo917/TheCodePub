@@ -37,4 +37,7 @@ dependencies {
 
     //For parsing json
     compile 'com.squareup.retrofit:converter-jackson:2.0.0-beta1'
+
+    // Database
+    compile 'de.greenrobot:greendao:2.0.0'
 }

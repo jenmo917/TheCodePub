@@ -1,4 +1,4 @@
-package com.netlight.jemo.netlightquotes;
+package com.netlight.quotes.app;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
