@@ -5,6 +5,8 @@ import android.util.Log;
 import com.netlight.quotes.app.model.dao.DaoSession;
 import com.netlight.quotes.app.model.db.Quote;
 
+import java.util.List;
+
 public class QuoteDatabaseService {
     private final DaoSession daoSession;
 
@@ -15,5 +17,9 @@ public class QuoteDatabaseService {
     public void saveQuote(Quote quote) {
         long id = daoSession.getQuoteDao().insert(quote);
         Log.d(getClass().getCanonicalName(), "Quote saved to db: " + id);
+    }
+
+    public List<Quote> getAllQuotes() {
+        return daoSession.getQuoteDao().loadAll();
     }
 }
