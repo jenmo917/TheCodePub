@@ -1,17 +1,15 @@
 package com.netlight.quotes.app.service.webservice;
 
-import com.netlight.quotes.app.model.dto.QuoteDto;
-
 import retrofit.Call;
 import retrofit.http.GET;
 import retrofit.http.Headers;
-import retrofit.http.Path;
+import retrofit.http.Query;
 
-public interface QuotesApi {
+public interface YodaApi {
     @Headers({
             "X-Mashape-Key : OVEPFZxY9ImshDy9tJFFZjHT6xR9p1XnoEejsnpkTn1rsmKPrH",
-            "Accept: application/json"
+            "Accept: text/plain"
     })
-    @GET("quotes/{cat}")
-    Call<QuoteDto> getQuote(@Path("cat") String cat);
+    @GET("yoda")
+    Call<String> yodafy(@Query("sentence") String sentence);
 }

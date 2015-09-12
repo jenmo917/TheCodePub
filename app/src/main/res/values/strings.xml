@@ -7,7 +7,7 @@
     <string name="action_favorites">Favorites</string>
 
     <!-- Various -->
-    <string name="quote_icon">Sitat</string>
-    <string name="like">Yeeii</string>
-    <string name="dislike">Uhhh</string>
+    <string name="like">Like</string>
+    <string name="yodafy">Yodafy</string>
+    <string name="dislike">Dislike</string>
 </resources>

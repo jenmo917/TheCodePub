@@ -7,12 +7,14 @@ import android.util.Log;
 import com.netlight.quotes.app.model.dao.DaoMaster;
 import com.netlight.quotes.app.model.dao.DaoSession;
 import com.netlight.quotes.app.service.QuotesService;
+import com.netlight.quotes.app.service.YodaService;
 
 public class ValueHolder {
     private static final String DATABASE_NAME = "com.netlight.quotes.db";
     private static ValueHolder instance;
     private DaoSession daoSession;
     private QuotesService quotesService;
+    private YodaService yodaService;
 
     private ValueHolder(Context context) {
         initDataBaseSession(context);
@@ -21,6 +23,7 @@ public class ValueHolder {
 
     private void initRetrofitService() {
         quotesService = new QuotesService();
+        yodaService = new YodaService();
     }
 
     public synchronized static ValueHolder getInstance(final Context context) {
@@ -44,5 +47,9 @@ public class ValueHolder {
 
     public QuotesService getQuotesWebService() {
         return quotesService;
+    }
+
+    public YodaService getYodaWebService() {
+        return yodaService;
     }
 }

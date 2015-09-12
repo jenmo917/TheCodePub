@@ -33,6 +33,13 @@
         android:layout_alignParentEnd="true" />
 
     <Button
+        android:id="@+id/buttonYodafy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/yodafy"
+        android:layout_centerHorizontal="true" />
+
+    <Button
         android:id="@+id/buttonDislike"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
