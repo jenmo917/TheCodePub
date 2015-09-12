@@ -1,16 +1,19 @@
 package com.netlight.quotes.app.view;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.netlight.quotes.app.CustomApplication;
+import com.netlight.quotes.app.R;
+import com.netlight.quotes.app.ValueHolder;
+import com.netlight.quotes.app.model.db.Quote;
 import com.netlight.quotes.app.model.dto.QuoteDto;
 import com.netlight.quotes.app.service.QuotesService;
-import com.netlight.quotes.app.R;
+import com.netlight.quotes.app.service.task.SaveQuoteAsyncTask;
 
 import retrofit.Callback;
 
@@ -19,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonDislike;
     private Button buttonLike;
     private QuoteView quoteView;
+    private QuoteDto currentQuoteDto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         buttonLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                saveQuoteToDb();
                 getNewQuote();
             }
         });
@@ -50,12 +55,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void saveQuoteToDb() {
+        Quote quote = new Quote(currentQuoteDto);
+        new SaveQuoteAsyncTask(getApplicationContext()).execute(quote);
+    }
+
     private void getNewQuote() {
-        getQuotesService().getQuote("movies", new Callback<QuoteDto>() {
+        getQuotesWebService().getQuote("movies", new Callback<QuoteDto>() {
             @Override
             public void onResponse(retrofit.Response<QuoteDto> response) {
-                QuoteDto quoteDto = response.body();
-                setQuoteToView(quoteDto);
+                currentQuoteDto = response.body();
+                setQuoteToView(currentQuoteDto);
             }
 
             @Override
@@ -65,9 +75,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private QuotesService getQuotesService() {
-        CustomApplication application = (CustomApplication) getApplication();
-        return application.getQuotesService();
+    @NonNull
+    private QuotesService getQuotesWebService() {
+        QuotesService quotesService = ValueHolder.getInstance(getApplicationContext()).getQuotesWebService();
+        return quotesService;
     }
 
     private void setQuoteToView(QuoteDto quoteDto) {

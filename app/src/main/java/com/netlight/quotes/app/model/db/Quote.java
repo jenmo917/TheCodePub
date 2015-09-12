@@ -5,6 +5,8 @@ package com.netlight.quotes.app.model.db;
 // KEEP INCLUDES - put your custom includes here
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import com.netlight.quotes.app.model.dto.QuoteDto;
 // KEEP INCLUDES END
 
 /**
@@ -35,6 +37,12 @@ public class Quote implements Parcelable {
         this.quote = quote;
         this.author = author;
         this.category = category;
+    }
+
+    public Quote(QuoteDto quoteDto) {
+        quote = quoteDto.getQuote();
+        author = quoteDto.getAuthor();
+        category = quoteDto.getCategory();
     }
 
     public Long getId() {
