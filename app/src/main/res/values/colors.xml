@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="netlight_purple">#36185F</color>
+    <color name="netlight_gold">#CC9933</color>
+    <color name="netlight_silver">#EDEDED</color>
+    <color name="netlight_gray">#262626</color>
+</resources>
