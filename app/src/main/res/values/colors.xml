@@ -4,4 +4,6 @@
     <color name="netlight_gold">#CC9933</color>
     <color name="netlight_silver">#EDEDED</color>
     <color name="netlight_gray">#262626</color>
+
+    <color name="selected">#d8d8d8</color>
 </resources>

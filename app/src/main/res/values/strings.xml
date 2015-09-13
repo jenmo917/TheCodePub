@@ -20,6 +20,8 @@
     <string name="no_data">No data</string>
     <string name="retry_message">Something went wrong, try again</string>
     <string name="save_as_favorite">Quote saved as favorite!</string>
+    <string name="star_wars">Star Wars</string>
+    <string name="yoda">Grand Jedi Master Yoda</string>
     <!-- END Various -->
 
     <!-- START About app titles and text -->

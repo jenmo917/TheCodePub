@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.netlight.quotes.app.R;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonLike;
     private QuoteView quoteView;
     private QuoteDto quote;
-    private Button buttonYodafy;
+    private YodaButton buttonYodafy;
     LoadingLayout loadingLayout;
     private Filter filter = Filter.movies;
 
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private void findViews() {
         buttonLike = (Button) findViewById(R.id.buttonLike);
         buttonDislike = (Button) findViewById(R.id.buttonDislike);
-        buttonYodafy = (Button) findViewById(R.id.buttonYodafy);
+        buttonYodafy = (YodaButton) findViewById(R.id.buttonYodafy);
         quoteView = (QuoteView) findViewById(R.id.quoteView);
         loadingLayout = (LoadingLayout) findViewById(R.id.loadingLayout);
     }
@@ -103,8 +104,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setYodaQuoteToView(String quoteText, QuoteDto quote) {
         quote.setQuote(quoteText);
-        quote.setAuthor("Yoda");
-        quote.setCategory("Star Wars");
+        quote.setAuthor(getResources().getString(R.string.yoda));
+        quote.setCategory(getResources().getString(R.string.star_wars));
         quoteView.bindTo(quote);
     }
 
