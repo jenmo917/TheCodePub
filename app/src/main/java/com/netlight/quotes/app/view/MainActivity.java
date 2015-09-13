@@ -3,18 +3,17 @@ package com.netlight.quotes.app.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.netlight.quotes.app.R;
 import com.netlight.quotes.app.ValueHolder;
 import com.netlight.quotes.app.model.db.Quote;
 import com.netlight.quotes.app.model.dto.QuoteDto;
 import com.netlight.quotes.app.service.task.SaveQuoteAsyncTask;
+import com.netlight.quotes.app.util.Util;
 import com.netlight.quotes.app.view.about.AboutActivity;
 import com.netlight.quotes.app.view.custom.QuoteView;
 import com.netlight.quotes.app.view.custom.YodaButton;
@@ -59,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         buttonLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast(getResources().getString(R.string.save_as_favorite));
+                Util.showToast(getApplicationContext(), getResources().getString(R.string.save_as_favorite));
                 saveQuoteToDb();
                 getNewQuote();
             }
@@ -78,12 +77,6 @@ public class MainActivity extends AppCompatActivity {
                 yodafyQuote(quote);
             }
         });
-    }
-
-    private void showToast(String text) {
-        Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.TOP, 0, (int) getResources().getDimension(R.dimen.margin_l));
-        toast.show();
     }
 
     private void yodafyQuote(final QuoteDto quote) {

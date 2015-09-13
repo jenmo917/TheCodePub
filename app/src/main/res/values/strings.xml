@@ -22,6 +22,8 @@
     <string name="save_as_favorite">Quote saved as favorite!</string>
     <string name="star_wars">Star Wars</string>
     <string name="yoda">Grand Jedi Master Yoda</string>
+    <string name="action_delete_quotes">Delete</string>
+    <string name="quotes_deleted">All quotes has been deleted</string>
     <!-- END Various -->
 
     <!-- START About app titles and text -->
