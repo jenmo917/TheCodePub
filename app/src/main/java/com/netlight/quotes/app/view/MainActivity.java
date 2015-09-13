@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         findViews();
         getNewQuote();
         setOnButtonClickListener();
-        quoteView.setQuoteColor(R.color.netlight_gold);
     }
 
     private void findViews() {

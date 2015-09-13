@@ -2,6 +2,7 @@ package com.netlight.quotes.app.view.custom;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.util.AttributeSet;
@@ -20,20 +21,44 @@ public class QuoteView extends RelativeLayout {
     private ImageView imageViewQuote;
     private ImageView imageViewQuoteByLine;
 
+
+    public QuoteView(Context context) {
+        super(context);
+        init();
+    }
+
     public QuoteView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
+        initAttrs(attrs);
     }
 
     public QuoteView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
+        initAttrs(attrs);
     }
 
     @TargetApi(21)
     public QuoteView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();
+        initAttrs(attrs);
+    }
+
+    private void initAttrs(AttributeSet attrs) {
+        TypedArray a = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.QuoteView, 0, 0);
+        try {
+            int color = a.getColor(R.styleable.QuoteView_quotecolor, getResources().getColor(R.color.netlight_gold));
+            setColors(color);
+        } finally {
+            a.recycle();
+        }
+    }
+
+    private void setColors(int color) {
+        imageViewQuote.setColorFilter(new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN));
+        imageViewQuoteByLine.setColorFilter(new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN));
     }
 
     private void init() {
@@ -50,7 +75,6 @@ public class QuoteView extends RelativeLayout {
     }
 
     public void setQuoteColor(int color) {
-        imageViewQuote.setColorFilter(new PorterDuffColorFilter(getResources().getColor(color), PorterDuff.Mode.SRC_IN));
-        imageViewQuoteByLine.setColorFilter(new PorterDuffColorFilter(getResources().getColor(color), PorterDuff.Mode.SRC_IN));
+        setColors(getResources().getColor(color));
     }
 }

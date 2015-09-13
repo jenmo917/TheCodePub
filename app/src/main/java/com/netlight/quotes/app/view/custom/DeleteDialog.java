@@ -49,7 +49,6 @@ public class DeleteDialog extends DialogFragment {
         deleteButton = (Button) fragmentView.findViewById(R.id.deleteButton);
     }
 
-
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
