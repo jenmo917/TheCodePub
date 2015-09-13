@@ -4,18 +4,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <RelativeLayout
+    <com.netlight.quotes.app.view.LoadingLayout
+        android:id="@+id/loadingLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/relativeLayoutLikeButtons">
 
-    <com.netlight.quotes.app.view.QuoteView
-        android:id="@+id/quoteView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true" />
+        <com.netlight.quotes.app.view.QuoteView
+            android:id="@+id/quoteView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
 
-    </RelativeLayout>
+    </com.netlight.quotes.app.view.LoadingLayout>
 
     <RelativeLayout
         android:id="@id/relativeLayoutLikeButtons"

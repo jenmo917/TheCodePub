@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private QuoteView quoteView;
     private QuoteDto quote;
     private Button buttonYodafy;
+    LoadingLayout loadingLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         buttonDislike = (Button) findViewById(R.id.buttonDislike);
         buttonYodafy = (Button) findViewById(R.id.buttonYodafy);
         quoteView = (QuoteView) findViewById(R.id.quoteView);
+        loadingLayout = (LoadingLayout) findViewById(R.id.loadingLayout);
     }
 
     private void setOnButtonClickListener() {
@@ -59,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         buttonYodafy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                loadingLayout.loadingStart();
                 yodafyQuote(quote);
             }
         });
@@ -69,17 +72,24 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Response<String> response) {
-                quote.setQuote(response.body());
-                quote.setAuthor("Yoda");
-                quote.setCategory("Star Wars");
-                quoteView.bindTo(quote);
+                String quoteText = response.body();
+                setYodaQuoteToView(quoteText, quote);
+                loadingLayout.loadingSuccesssfull();
             }
 
             @Override
             public void onFailure(Throwable t) {
                 t.printStackTrace();
+                loadingLayout.loadingFailed(null);
             }
         });
+    }
+
+    private void setYodaQuoteToView(String quoteText, QuoteDto quote) {
+        quote.setQuote(quoteText);
+        quote.setAuthor("Yoda");
+        quote.setCategory("Star Wars");
+        quoteView.bindTo(quote);
     }
 
     private void saveQuoteToDb() {
@@ -88,16 +98,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getNewQuote() {
+        loadingLayout.loadingStart();
         ValueHolder.getInstance(getApplicationContext()).getQuotesWebService().getQuote("movies", new Callback<QuoteDto>() {
             @Override
             public void onResponse(retrofit.Response<QuoteDto> response) {
                 quote = response.body();
                 setQuoteToView(quote);
+                loadingLayout.loadingSuccesssfull();
             }
 
             @Override
             public void onFailure(Throwable t) {
                 t.printStackTrace();
+                loadingLayout.loadingFailed(null);
             }
         });
     }
