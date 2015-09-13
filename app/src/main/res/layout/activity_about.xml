@@ -47,5 +47,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <TextView
+            style="@style/AboutAppTitle"
+            android:text="@string/about_app_sharing_is_caring_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            style="@style/AboutAppText"
+            android:text="@string/about_app_sharing_is_caring"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </ScrollView>

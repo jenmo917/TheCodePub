@@ -35,5 +35,8 @@
     <string name="about_app_how_did_it_start">The Code Pub was created by Netlight in the spring of 2013 with the purpose of increasing the number of women in the IT industry.
         By lowering the threshold for getting started with programming and highlighting female role models within IT, we believe that we can make a difference.
         In order to have a bigger impact on the entire industry we work together with other cool IT companies and they will be hosting occasional Code Pub meet-ups.</string>
+    <string name="about_app_sharing_is_caring_title">FOR COMPANIES - Sharing is caring</string>
+    <string name="about_app_sharing_is_caring">If your company would like to host a the Code Pub-meetup, just send an e-mail to thecodepub@netlight.com to get more information.
+        The more people we are who are working with improving gender equality in the IT industry, the bigger the impact will be.</string>
     <!-- END About app titles and text -->
 </resources>

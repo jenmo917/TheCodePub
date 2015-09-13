@@ -20,9 +20,8 @@
     <dimen name="font_size_xs">12sp</dimen>
     <dimen name="font_size_xxs">11sp</dimen>
 
-    <dimen name="line_spacing_metadata">7dp</dimen>
-    <dimen name="line_spacing_quote">10dp</dimen>
-    <dimen name="line_spacing_about_app">4dp</dimen>
+    <dimen name="line_spacing_size_l">10dp</dimen>
+    <dimen name="line_spacing_size_m">7dp</dimen>
     <dimen name="view_quote_width">300dp</dimen>
     <dimen name="progress_loading_size">50dp</dimen>
 </resources>
