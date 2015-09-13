@@ -13,7 +13,7 @@ import com.netlight.quotes.app.ValueHolder;
 import com.netlight.quotes.app.model.db.Quote;
 import com.netlight.quotes.app.service.TaskCallback;
 import com.netlight.quotes.app.service.task.GetQuotesAsyncTask;
-import com.netlight.quotes.app.util.Util;
+import com.netlight.quotes.app.view.custom.DeleteDialog;
 
 import java.util.List;
 
@@ -60,7 +60,7 @@ public class FavoritesActivity extends AppCompatActivity {
 
         switch (id) {
             case R.id.action_delete_quotes:
-                deleteQuotes();
+                showDeleteDialog();
                 break;
         }
 
@@ -68,9 +68,20 @@ public class FavoritesActivity extends AppCompatActivity {
     }
 
     private void deleteQuotes() {
-        ValueHolder.getInstance(this).getDaoSession().getQuoteDao().deleteAll();
+        ValueHolder.getInstance(getApplicationContext()).getDaoSession().getQuoteDao().deleteAll();
         quotesAdapter.setItems(null);
-        Util.showToast(getApplicationContext(), getResources().getString(R.string.quotes_deleted));
+    }
+
+    private void showDeleteDialog() {
+        DeleteDialog deleteDialog = new DeleteDialog();
+        deleteDialog.setOnSuccessAndCloseListener(new DeleteDialog.OnSuccessListener() {
+
+            @Override
+            public void onSuccess() {
+                deleteQuotes();
+            }
+        });
+        DeleteDialog.showDialog(getSupportFragmentManager(), deleteDialog);
     }
 
     @Override
