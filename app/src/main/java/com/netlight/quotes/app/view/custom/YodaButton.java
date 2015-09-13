@@ -1,4 +1,4 @@
-package com.netlight.quotes.app.view;
+package com.netlight.quotes.app.view.custom;
 
 import android.annotation.TargetApi;
 import android.content.Context;

@@ -16,6 +16,8 @@ import com.netlight.quotes.app.model.db.Quote;
 import com.netlight.quotes.app.model.dto.QuoteDto;
 import com.netlight.quotes.app.service.task.SaveQuoteAsyncTask;
 import com.netlight.quotes.app.view.about.AboutActivity;
+import com.netlight.quotes.app.view.custom.QuoteView;
+import com.netlight.quotes.app.view.custom.YodaButton;
 import com.netlight.quotes.app.view.favorites.FavoritesActivity;
 
 import retrofit.Callback;

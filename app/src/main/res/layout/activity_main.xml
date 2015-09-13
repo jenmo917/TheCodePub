@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/relativeLayoutLikeButtons">
 
-        <com.netlight.quotes.app.view.QuoteView
+        <com.netlight.quotes.app.view.custom.QuoteView
             android:id="@+id/quoteView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
         android:layout_centerVertical="true"
         android:layout_alignParentEnd="true" />
 
-    <com.netlight.quotes.app.view.YodaButton
+    <com.netlight.quotes.app.view.custom.YodaButton
         android:id="@+id/buttonYodafy"
         android:layout_width="75dp"
         android:layout_height="75dp"
