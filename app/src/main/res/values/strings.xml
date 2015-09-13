@@ -1,22 +1,28 @@
 <resources>
 
+    <!-- START Activity names -->
     <string name="title_activity_main">CodePub Quotes</string>
     <string name="title_activity_about">About app</string>
+    <!-- END Activity names -->
 
-    <!-- Action buttons -->
+    <!-- START Action buttons -->
     <string name="action_favorites">Favorites</string>
     <string name="action_about">About app</string>
     <string name="action_famous_quotes">Famous Quotes</string>
     <string name="action_movie_quotes">Movie Quotes</string>
+    <!-- END Action buttons -->
 
-    <!-- Various -->
+    <!-- START Various -->
     <string name="like">Like</string>
     <string name="yodafy">Yodafy</string>
     <string name="dislike">Dislike</string>
     <string name="retry">Try again</string>
     <string name="no_data">No data</string>
     <string name="retry_message">Something went wrong, try again</string>
+    <string name="save_as_favorite">Quote saved as favorite!</string>
+    <!-- END Various -->
 
+    <!-- START About app titles and text -->
     <string name="about_app_title">About App</string>
     <string name="about_app">This app uses two APIs from Mashape. Mashape makes it easy to distribute and consume cloud APIs.
         They are also building a world-class marketplace for cloud APIs, driven by a passionate community of developers from all over the world.</string>
@@ -29,5 +35,5 @@
     <string name="about_app_how_did_it_start">The Code Pub was created by Netlight in the spring of 2013 with the purpose of increasing the number of women in the IT industry.
         By lowering the threshold for getting started with programming and highlighting female role models within IT, we believe that we can make a difference.
         In order to have a bigger impact on the entire industry we work together with other cool IT companies and they will be hosting occasional Code Pub meet-ups.</string>
-
+    <!-- END About app titles and text -->
 </resources>
