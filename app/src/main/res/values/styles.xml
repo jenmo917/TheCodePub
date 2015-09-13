@@ -33,14 +33,22 @@
         <item name="android:paddingLeft">@dimen/margin_xs</item>
     </style>
 
+    <style name="AboutAppText">
+        <item name="android:lineSpacingExtra">@dimen/line_spacing_size_m</item>
+        <item name="android:layout_marginBottom">@dimen/margin_l</item>
+    </style>
+
     <style name="AboutAppTitle">
         <item name="android:textSize">@dimen/font_size_l</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="AboutAppText">
-        <item name="android:lineSpacingExtra">@dimen/line_spacing_size_m</item>
-        <item name="android:layout_marginBottom">@dimen/margin_l</item>
+    <style name="DialogDeleteTitle" parent="Title">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Title">
+        <item name="android:textSize">@dimen/font_size_m</item>
     </style>
 </resources>

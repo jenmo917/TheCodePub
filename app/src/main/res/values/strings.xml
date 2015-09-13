@@ -13,20 +13,6 @@
     <string name="action_delete_quotes">Delete all quotes</string>
     <!-- END Action buttons -->
 
-    <!-- START Various -->
-    <string name="like">Like</string>
-    <string name="yodafy">Yodafy</string>
-    <string name="dislike">Dislike</string>
-    <string name="retry">Try again</string>
-    <string name="no_data">No data</string>
-    <string name="retry_message">Something went wrong, try again</string>
-    <string name="save_as_favorite">Quote saved as favorite!</string>
-    <string name="star_wars">Star Wars</string>
-    <string name="yoda">Grand Jedi Master Yoda</string>
-    <string name="quotes_deleted">All quotes has been deleted</string>
-    <string name="dialog_delete_text">This action will delete all your favorite quotes. Are you sure you want to do that?</string>
-    <!-- END Various -->
-
     <!-- START About app titles and text -->
     <string name="about_app_title">About App</string>
     <string name="about_app">This app uses two APIs from Mashape. Mashape makes it easy to distribute and consume cloud APIs.
@@ -44,4 +30,21 @@
     <string name="about_app_sharing_is_caring">If your company would like to host a the Code Pub-meetup, just send an e-mail to thecodepub@netlight.com to get more information.
         The more people we are who are working with improving gender equality in the IT industry, the bigger the impact will be.</string>
     <!-- END About app titles and text -->
+
+    <!-- START Various -->
+    <string name="like">Like</string>
+    <string name="yodafy">Yodafy</string>
+    <string name="dislike">Dislike</string>
+    <string name="retry">Try again</string>
+    <string name="no_data">No data</string>
+    <string name="retry_message">Something went wrong, try again</string>
+    <string name="save_as_favorite">Quote saved as favorite!</string>
+    <string name="star_wars">Star Wars</string>
+    <string name="yoda">Grand Jedi Master Yoda</string>
+    <string name="quotes_deleted">All quotes has been deleted</string>
+    <string name="dialog_delete_text">This action will delete all your favorite quotes. Are you sure you want to do that?</string>
+    <string name="caution">Caution</string>
+    <string name="no_favorites">You have no favorites yet</string>
+    <!-- END Various -->
+
 </resources>

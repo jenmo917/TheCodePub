@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/margin_l">
 
     <TextView
+        style="@style/DialogDeleteTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/caution" />
+
+    <TextView
         android:id="@+id/deleteText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
         android:text="@string/dialog_delete_text" />
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/deleteText">
+        android:layout_height="match_parent">
 
         <Button
             android:id="@+id/deleteButton"
@@ -27,4 +33,4 @@
 
     </FrameLayout>
 
-</RelativeLayout>
+</LinearLayout>

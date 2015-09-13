@@ -6,11 +6,20 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/margin_l"
     android:layout_marginTop="@dimen/margin_l"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
     <com.netlight.quotes.app.view.custom.QuoteView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:quotecolor="@color/netlight_gold"/>
+        app:quotecolor="@color/netlight_gold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/margin_l"
+        android:layout_marginRight="@dimen/margin_l"
+        android:layout_marginTop="@dimen/margin_l"
+        android:background="@color/netlight_gold" />
 
 </LinearLayout>

@@ -6,7 +6,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.netlight.quotes.app.R;
 import com.netlight.quotes.app.ValueHolder;
@@ -21,6 +23,7 @@ public class FavoritesActivity extends AppCompatActivity {
 
     private RecyclerView recyclerViewFavorites;
     private QuotesAdapter quotesAdapter;
+    private TextView textViewNoFavorites;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,11 @@ public class FavoritesActivity extends AppCompatActivity {
         new GetQuotesAsyncTask(getApplicationContext(), new TaskCallback<List<Quote>>() {
             @Override
             public void onTaskFinished(List<Quote> quotes) {
-                quotesAdapter.setItems(quotes);
+                if (quotes.size() > 0) {
+                    quotesAdapter.setItems(quotes);
+                } else {
+                    textViewNoFavorites.setVisibility(View.VISIBLE);
+                }
             }
         }).execute();
     }
@@ -51,6 +58,7 @@ public class FavoritesActivity extends AppCompatActivity {
 
     private void findViews() {
         recyclerViewFavorites = (RecyclerView) findViewById(R.id.recyclerViewFavorites);
+        textViewNoFavorites = (TextView) findViewById(R.id.textViewNoFavorites);
     }
 
 
@@ -70,6 +78,7 @@ public class FavoritesActivity extends AppCompatActivity {
     private void deleteQuotes() {
         ValueHolder.getInstance(getApplicationContext()).getDaoSession().getQuoteDao().deleteAll();
         quotesAdapter.setItems(null);
+        textViewNoFavorites.setVisibility(View.VISIBLE);
     }
 
     private void showDeleteDialog() {
