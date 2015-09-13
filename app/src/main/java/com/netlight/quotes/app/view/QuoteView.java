@@ -50,7 +50,7 @@ public class QuoteView extends RelativeLayout {
     }
 
     public void setQuoteColor(int color) {
-        imageViewQuote.getDrawable().setColorFilter(new PorterDuffColorFilter(getResources().getColor(color), PorterDuff.Mode.SRC_IN));
-        imageViewQuoteByLine.getDrawable().setColorFilter(new PorterDuffColorFilter(getResources().getColor(color), PorterDuff.Mode.SRC_IN));
+        imageViewQuote.setColorFilter(new PorterDuffColorFilter(getResources().getColor(color), PorterDuff.Mode.SRC_IN));
+        imageViewQuoteByLine.setColorFilter(new PorterDuffColorFilter(getResources().getColor(color), PorterDuff.Mode.SRC_IN));
     }
 }
