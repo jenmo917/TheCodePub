@@ -1,7 +1,7 @@
 <resources>
 
     <!-- START Activity names -->
-    <string name="title_activity_main">CodePub Quotes</string>
+    <string name="title_activity_main">Quotes</string>
     <string name="title_activity_about">About app</string>
     <!-- END Activity names -->
 

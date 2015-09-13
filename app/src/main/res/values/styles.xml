@@ -4,7 +4,7 @@
     <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/QuotesActionBar</item>
         <item name="actionBarStyle">@style/QuotesActionBar</item>
-        <item name="android:textColor">@color/netlight_purple</item>
+        <item name="android:textColor">@color/netlight_gray</item>
     </style>
 
     <style name="QuotesActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
