@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         findViews();
         getNewQuote();
         setOnButtonClickListener();
+        quoteView.setQuoteColor(R.color.netlight_gold);
     }
 
     private void findViews() {
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loadingLayout.loadingStart();
+                quoteView.setQuoteColor(R.color.yoda);
                 yodafyQuote(quote);
             }
         });
@@ -114,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getNewQuote() {
         loadingLayout.loadingStart();
+        quoteView.setQuoteColor(R.color.netlight_gold);
         ValueHolder.getInstance(getApplicationContext()).getQuotesWebService().getQuote(filter.name(), new Callback<QuoteDto>() {
             @Override
             public void onResponse(retrofit.Response<QuoteDto> response) {
