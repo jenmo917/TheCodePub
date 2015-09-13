@@ -8,7 +8,6 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,7 @@ import com.netlight.quotes.app.R;
 public class DeleteDialog extends DialogFragment {
 
     private OnSuccessListener onSuccessListener;
-    private Button button;
+    private Button deleteButton;
 
     public interface OnSuccessListener {
         void onSuccess();
@@ -35,7 +34,7 @@ public class DeleteDialog extends DialogFragment {
     }
 
     private void setOnButtonClickListner() {
-        button.setOnClickListener(new View.OnClickListener() {
+        deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (onSuccessListener != null) {
@@ -47,7 +46,7 @@ public class DeleteDialog extends DialogFragment {
     }
 
     private void findViews(View fragmentView) {
-        button = (Button) fragmentView.findViewById(R.id.deleteButton);
+        deleteButton = (Button) fragmentView.findViewById(R.id.deleteButton);
     }
 
 
@@ -65,7 +64,6 @@ public class DeleteDialog extends DialogFragment {
         super.onResume();
         Window window = getDialog().getWindow();
         window.setLayout((int) getResources().getDimension(R.dimen.delete_dialog_width), (int) getResources().getDimension(R.dimen.delete_dialog_height));
-        window.setGravity(Gravity.CENTER);
     }
 
     public static void showDialog(FragmentManager fragmentManager, DeleteDialog deleteFragment) {
