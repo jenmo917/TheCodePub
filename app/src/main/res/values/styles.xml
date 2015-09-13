@@ -30,4 +30,16 @@
         <item name="android:paddingLeft">@dimen/margin_xs</item>
     </style>
 
+    <style name="AboutAppTitle">
+        <item name="android:textSize">@dimen/font_size_l</item>
+        <item name="android:textColor">@color/netlight_purple</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AboutAppText">
+        <item name="android:lineSpacingExtra">@dimen/line_spacing_about_app</item>
+        <item name="android:layout_marginBottom">@dimen/margin_l</item>
+        <item name="android:textColor">@color/netlight_purple</item>
+    </style>
 </resources>

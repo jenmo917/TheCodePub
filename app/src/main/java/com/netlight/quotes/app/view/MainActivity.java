@@ -1,5 +1,6 @@
 package com.netlight.quotes.app.view;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import com.netlight.quotes.app.ValueHolder;
 import com.netlight.quotes.app.model.db.Quote;
 import com.netlight.quotes.app.model.dto.QuoteDto;
 import com.netlight.quotes.app.service.task.SaveQuoteAsyncTask;
+import com.netlight.quotes.app.view.about.AboutActivity;
 import com.netlight.quotes.app.view.favorites.FavoritesActivity;
 
 import retrofit.Callback;
@@ -26,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
     private QuoteDto quote;
     private Button buttonYodafy;
     LoadingLayout loadingLayout;
+    private Filter filter = Filter.movies;
+
+    private enum Filter {
+        movies, famous
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getNewQuote() {
         loadingLayout.loadingStart();
-        ValueHolder.getInstance(getApplicationContext()).getQuotesWebService().getQuote("movies", new Callback<QuoteDto>() {
+        ValueHolder.getInstance(getApplicationContext()).getQuotesWebService().getQuote(filter.name(), new Callback<QuoteDto>() {
             @Override
             public void onResponse(retrofit.Response<QuoteDto> response) {
                 quote = response.body();
@@ -129,14 +136,28 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_settings) {
-            return true;
-        } else if (id == R.id.action_favorites) {
-            Intent intent = new Intent(this, FavoritesActivity.class);
-            overridePendingTransition(0, 0);
-            startActivity(intent);
+        switch (id) {
+            case R.id.action_movie_quotes:
+                filter = Filter.movies;
+                getNewQuote();
+                break;
+            case R.id.action_famous_quotes:
+                filter = Filter.famous;
+                getNewQuote();
+                break;
+            case R.id.action_favorites:
+                startFavoritesActivity(new Intent(this, FavoritesActivity.class));
+                break;
+            case R.id.action_about:
+                startFavoritesActivity(new Intent(this, AboutActivity.class));
+                break;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void startFavoritesActivity(Intent intent) {
+        overridePendingTransition(0, 0);
+        startActivity(intent);
     }
 }
