@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private YodaButton buttonYodafy;
     LoadingLayout loadingLayout;
     private Filter filter = Filter.movies;
+    private boolean lastClickWasOnYodaButton;
 
     private enum Filter {
         movies, famous
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         findViews();
         getNewQuote();
-        setOnButtonClickListener();
+        setListeners();
     }
 
     private void findViews() {
@@ -53,10 +54,11 @@ public class MainActivity extends AppCompatActivity {
         loadingLayout = (LoadingLayout) findViewById(R.id.loadingLayout);
     }
 
-    private void setOnButtonClickListener() {
+    private void setListeners() {
         buttonLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lastClickWasOnYodaButton = false;
                 Util.showToast(getApplicationContext(), getResources().getString(R.string.save_as_favorite));
                 saveQuoteToDb();
                 getNewQuote();
@@ -65,15 +67,28 @@ public class MainActivity extends AppCompatActivity {
         buttonDislike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lastClickWasOnYodaButton = false;
                 getNewQuote();
             }
         });
         buttonYodafy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                lastClickWasOnYodaButton = true;
                 loadingLayout.loadingStart();
                 quoteView.setQuoteColor(R.color.yoda);
                 yodafyQuote(quote);
+            }
+        });
+        loadingLayout.setLoadingListener(new LoadingLayout.LoadingListener() {
+            @Override
+            public void OnRetryPressed() {
+                loadingLayout.loadingStart();
+                if (lastClickWasOnYodaButton) {
+                    yodafyQuote(quote);
+                } else {
+                    getNewQuote();
+                }
             }
         });
     }
