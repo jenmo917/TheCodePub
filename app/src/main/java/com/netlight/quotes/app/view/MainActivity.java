@@ -15,7 +15,6 @@ import com.netlight.quotes.app.model.dto.QuoteDto;
 import com.netlight.quotes.app.service.task.SaveQuoteAsyncTask;
 import com.netlight.quotes.app.util.Util;
 import com.netlight.quotes.app.view.custom.QuoteView;
-import com.netlight.quotes.app.view.custom.YodaButton;
 import com.netlight.quotes.app.view.favorites.FavoritesActivity;
 
 import retrofit.Callback;
@@ -27,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonLike;
     private QuoteView quoteView;
     private Quote quote;
-    private YodaButton buttonYodafy;
     LoadingLayout loadingLayout;
     private Filter filter = Filter.movies;
     private boolean lastClickWasOnYodaButton;
@@ -48,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
     private void findViews() {
         buttonLike = (Button) findViewById(R.id.buttonLike);
         buttonDislike = (Button) findViewById(R.id.buttonDislike);
-        buttonYodafy = (YodaButton) findViewById(R.id.buttonYodafy);
         quoteView = (QuoteView) findViewById(R.id.quoteView);
         loadingLayout = (LoadingLayout) findViewById(R.id.loadingLayout);
     }
@@ -74,17 +71,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        buttonYodafy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!loadingLayout.isLoading()) {
-                    lastClickWasOnYodaButton = true;
-                    loadingLayout.loadingStart();
-                    quoteView.setQuoteColor(R.color.yoda);
-                    yodafyQuote(quote);
-                }
-            }
-        });
         loadingLayout.setLoadingListener(new LoadingLayout.LoadingListener() {
             @Override
             public void OnRetryPressed() {
@@ -96,6 +82,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void onButtonYodafyClick() {
+        if (!loadingLayout.isLoading()) {
+            lastClickWasOnYodaButton = true;
+            loadingLayout.loadingStart();
+            quoteView.setQuoteColor(R.color.yoda);
+            yodafyQuote(quote);
+        }
     }
 
     private void yodafyQuote(Quote quote) {
