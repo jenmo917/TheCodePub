@@ -58,26 +58,32 @@ public class MainActivity extends AppCompatActivity {
         buttonLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lastClickWasOnYodaButton = false;
-                Util.showToast(getApplicationContext(), getResources().getString(R.string.save_as_favorite));
-                saveQuoteToDb();
-                getNewQuote();
+                if (!loadingLayout.isLoading()) {
+                    lastClickWasOnYodaButton = false;
+                    Util.showToast(getApplicationContext(), getResources().getString(R.string.save_as_favorite));
+                    saveQuoteToDb();
+                    getNewQuote();
+                }
             }
         });
         buttonDislike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lastClickWasOnYodaButton = false;
-                getNewQuote();
+                if (!loadingLayout.isLoading()) {
+                    lastClickWasOnYodaButton = false;
+                    getNewQuote();
+                }
             }
         });
         buttonYodafy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lastClickWasOnYodaButton = true;
-                loadingLayout.loadingStart();
-                quoteView.setQuoteColor(R.color.yoda);
-                yodafyQuote(quote);
+                if (!loadingLayout.isLoading()) {
+                    lastClickWasOnYodaButton = true;
+                    loadingLayout.loadingStart();
+                    quoteView.setQuoteColor(R.color.yoda);
+                    yodafyQuote(quote);
+                }
             }
         });
         loadingLayout.setLoadingListener(new LoadingLayout.LoadingListener() {

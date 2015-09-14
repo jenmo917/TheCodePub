@@ -24,6 +24,11 @@ public class LoadingLayout extends FrameLayout {
     private TextView textViewLoadingInfo;
     private LoadingListener loadingListener;
     private LoadingEventListener loadingEventListener;
+    private boolean isLoading;
+
+    public boolean isLoading() {
+        return isLoading;
+    }
 
     public interface LoadingListener {
         void OnRetryPressed();
@@ -76,6 +81,7 @@ public class LoadingLayout extends FrameLayout {
     }
 
     public void loadingStart() {
+        isLoading = true;
         if (loadingEventListener != null) {
             loadingEventListener.onLoading();
         }
@@ -87,6 +93,7 @@ public class LoadingLayout extends FrameLayout {
     }
 
     public void loadingSuccesssfull() {
+        isLoading = false;
         if (loadingEventListener != null) {
             loadingEventListener.onLoadingSuccess();
         }
@@ -98,6 +105,7 @@ public class LoadingLayout extends FrameLayout {
     }
 
     public void loadingFailed(String failMessage) {
+        isLoading = false;
         if (failMessage != null) {
             textViewLoadingInfo.setText(failMessage);
         } else {
