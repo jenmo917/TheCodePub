@@ -11,9 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.netlight.quotes.app.R;
-
 import com.netlight.quotes.app.model.db.Quote;
-import com.netlight.quotes.app.model.dto.QuoteDto;
 
 public class QuoteView extends RelativeLayout {
 

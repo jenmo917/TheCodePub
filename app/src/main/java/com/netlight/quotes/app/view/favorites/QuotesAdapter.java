@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.netlight.quotes.app.R;
 import com.netlight.quotes.app.model.db.Quote;
@@ -38,7 +37,7 @@ public class QuotesAdapter extends RecyclerView.Adapter<QuotesAdapter.ViewHolder
     }
 
     private void setQuoteColor(ViewHolder viewHolder, Quote quote) {
-        if(quote.getYodafied()) {
+        if (quote.getYodafied()) {
             viewHolder.quoteView.setQuoteColor(R.color.yoda);
         } else {
             viewHolder.quoteView.setQuoteToDefaultColor();
