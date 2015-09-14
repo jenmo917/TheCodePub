@@ -14,7 +14,6 @@ import com.netlight.quotes.app.model.db.Quote;
 import com.netlight.quotes.app.model.dto.QuoteDto;
 import com.netlight.quotes.app.service.task.SaveQuoteAsyncTask;
 import com.netlight.quotes.app.util.Util;
-import com.netlight.quotes.app.view.about.AboutActivity;
 import com.netlight.quotes.app.view.custom.QuoteView;
 import com.netlight.quotes.app.view.custom.YodaButton;
 import com.netlight.quotes.app.view.favorites.FavoritesActivity;
@@ -172,17 +171,15 @@ public class MainActivity extends AppCompatActivity {
                 getNewQuote();
                 break;
             case R.id.action_favorites:
-                startFavoritesActivity(new Intent(this, FavoritesActivity.class));
-                break;
-            case R.id.action_about:
-                startFavoritesActivity(new Intent(this, AboutActivity.class));
+                startFavoritesActivity();
                 break;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void startFavoritesActivity(Intent intent) {
+    private void startFavoritesActivity() {
+        Intent intent = new Intent(this, FavoritesActivity.class);
         overridePendingTransition(0, 0);
         startActivity(intent);
     }

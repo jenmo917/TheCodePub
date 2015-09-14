@@ -23,10 +23,6 @@
             android:name=".view.favorites.FavoritesActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:parentActivityName=".view.MainActivity" />
-        <activity
-            android:name=".view.about.AboutActivity"
-            android:label="@string/title_activity_about"
-            android:parentActivityName=".view.MainActivity" />
     </application>
 
 </manifest>
