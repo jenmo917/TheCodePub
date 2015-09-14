@@ -21,6 +21,7 @@ public class QuoteView extends RelativeLayout {
     private TextView textViewQuote;
     private ImageView imageViewQuote;
     private ImageView imageViewQuoteByLine;
+    private int defaultColor;
 
 
     public QuoteView(Context context) {
@@ -50,8 +51,8 @@ public class QuoteView extends RelativeLayout {
     private void initAttrs(AttributeSet attrs) {
         TypedArray a = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.QuoteView, 0, 0);
         try {
-            int color = a.getColor(R.styleable.QuoteView_quotecolor, getResources().getColor(R.color.netlight_gold));
-            setColors(color);
+            defaultColor = a.getColor(R.styleable.QuoteView_quotecolor, getResources().getColor(R.color.netlight_gold));
+            setColors(defaultColor);
         } finally {
             a.recycle();
         }
@@ -77,5 +78,11 @@ public class QuoteView extends RelativeLayout {
 
     public void setQuoteColor(int color) {
         setColors(getResources().getColor(color));
+    }
+
+    public void setQuoteToDefaultColor() {
+        if (defaultColor != 0) {
+            setColors(defaultColor);
+        }
     }
 }

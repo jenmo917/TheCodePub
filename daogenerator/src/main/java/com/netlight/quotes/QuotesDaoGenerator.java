@@ -23,11 +23,12 @@ public class QuotesDaoGenerator {
     }
 
     private static void generateEntities(Schema schema) {
-        Entity newEpisode = schema.addEntity("Quote");
-        newEpisode.implementsInterface("Parcelable");
-        newEpisode.addIdProperty();
-        newEpisode.addStringProperty("quote").notNull();
-        newEpisode.addStringProperty("author").notNull();
-        newEpisode.addStringProperty("category").notNull();
+        Entity entity = schema.addEntity("Quote");
+        entity.implementsInterface("Parcelable");
+        entity.addIdProperty();
+        entity.addStringProperty("quote").notNull();
+        entity.addStringProperty("author").notNull();
+        entity.addStringProperty("category").notNull();
+        entity.addBooleanProperty("yodafied").notNull();
     }
 }

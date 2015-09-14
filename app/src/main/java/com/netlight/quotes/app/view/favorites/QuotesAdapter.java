@@ -26,24 +26,26 @@ public class QuotesAdapter extends RecyclerView.Adapter<QuotesAdapter.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_quote, parent, false);
-        ViewHolder viewholder = new ViewHolder(v);
-        return viewholder;
+        return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         Quote quote = items.get(position);
-        viewHolder.quote.setText(quote.getQuote());
-        viewHolder.quoteByLine.setText(quote.getAuthor());
-
-        if(quote.getAuthor().equals(context.getResources().getString(R.string.yoda))) {
-            viewHolder.quoteView.setQuoteColor(R.color.yoda);
-        }
-
-        setTopBottomMargin(position, viewHolder);
+        viewHolder.quoteView.bindTo(quote);
+        setQuoteColor(viewHolder, quote);
+        setTopBottomMargin(viewHolder, position);
     }
 
-    private void setTopBottomMargin(int position, ViewHolder viewHolder) {
+    private void setQuoteColor(ViewHolder viewHolder, Quote quote) {
+        if(quote.getYodafied()) {
+            viewHolder.quoteView.setQuoteColor(R.color.yoda);
+        } else {
+            viewHolder.quoteView.setQuoteToDefaultColor();
+        }
+    }
+
+    private void setTopBottomMargin(ViewHolder viewHolder, int position) {
         RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) viewHolder.layoutItemView.getLayoutParams();
         int margin = (int) context.getResources().getDimension(R.dimen.margin_l);
         layoutParams.topMargin = margin;
@@ -68,14 +70,10 @@ public class QuotesAdapter extends RecyclerView.Adapter<QuotesAdapter.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
         private final QuoteView quoteView;
         public LinearLayout layoutItemView;
-        public final TextView quote;
-        public final TextView quoteByLine;
 
         public ViewHolder(View itemView) {
             super(itemView);
             layoutItemView = (LinearLayout) itemView.findViewById(R.id.layoutItemView);
-            quote = (TextView) itemView.findViewById(R.id.textViewQuote);
-            quoteByLine = (TextView) itemView.findViewById(R.id.textViewQuoteByLine);
             quoteView = (QuoteView) itemView.findViewById(R.id.quoteView);
         }
     }

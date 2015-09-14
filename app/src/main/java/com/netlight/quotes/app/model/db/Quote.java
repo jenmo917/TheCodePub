@@ -8,9 +8,8 @@ import android.os.Parcelable;
 
 import com.netlight.quotes.app.model.dto.QuoteDto;
 // KEEP INCLUDES END
-
 /**
- * Entity mapped to table QUOTE.
+ * Entity mapped to table "QUOTE".
  */
 public class Quote implements Parcelable {
 
@@ -21,6 +20,7 @@ public class Quote implements Parcelable {
     private String author;
     /** Not-null value. */
     private String category;
+    private boolean yodafied;
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -32,17 +32,12 @@ public class Quote implements Parcelable {
         this.id = id;
     }
 
-    public Quote(Long id, String quote, String author, String category) {
+    public Quote(Long id, String quote, String author, String category, boolean yodafied) {
         this.id = id;
         this.quote = quote;
         this.author = author;
         this.category = category;
-    }
-
-    public Quote(QuoteDto quoteDto) {
-        quote = quoteDto.getQuote();
-        author = quoteDto.getAuthor();
-        category = quoteDto.getCategory();
+        this.yodafied = yodafied;
     }
 
     public Long getId() {
@@ -83,7 +78,23 @@ public class Quote implements Parcelable {
         this.category = category;
     }
 
+    public boolean getYodafied() {
+        return yodafied;
+    }
+
+    public void setYodafied(boolean yodafied) {
+        this.yodafied = yodafied;
+    }
+
     // KEEP METHODS - put your custom methods here
+
+    public Quote(QuoteDto quoteDto, boolean yodafied) {
+        quote = quoteDto.getQuote();
+        author = quoteDto.getAuthor();
+        category = quoteDto.getCategory();
+        this.yodafied = yodafied;
+    }
+
 
     protected Quote(Parcel in) {
         quote = in.readString();

@@ -112,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setYodaQuoteToView(String quoteText) {
+        quote.setYodafied(true);
         quote.setQuote(quoteText);
         quote.setAuthor(getResources().getString(R.string.yoda));
         quote.setCategory(getResources().getString(R.string.star_wars));
@@ -128,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         ValueHolder.getInstance(getApplicationContext()).getQuotesWebService().getQuote(filter.name(), new Callback<QuoteDto>() {
             @Override
             public void onResponse(retrofit.Response<QuoteDto> response) {
-                quote = new Quote(response.body());
+                quote = new Quote(response.body(), false);
                 setQuoteToView(quote);
                 loadingLayout.loadingSuccesssfull();
             }
