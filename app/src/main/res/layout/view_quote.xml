@@ -17,6 +17,7 @@
         style="@style/Quote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/dummy_quote"
         android:layout_toEndOf="@id/imageViewQuote" />
 
     <LinearLayout
@@ -36,6 +37,7 @@
         <TextView
             android:id="@+id/textViewQuoteByLine"
             style="@style/QuoteByLine"
+            android:text="@string/dummy_quote_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

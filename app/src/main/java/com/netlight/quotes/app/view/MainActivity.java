@@ -120,7 +120,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void saveQuoteToDb() {
-        new SaveQuoteAsyncTask(getApplicationContext()).execute(quote);
+        boolean quoteIsValid = quote != null && !(quote.getQuote().equals("") || quote.getAuthor().equals("") || quote.getCategory().equals(""));
+        if (quoteIsValid) {
+            new SaveQuoteAsyncTask(getApplicationContext()).execute(quote);
+        }
     }
 
     private void getNewQuote() {
@@ -129,8 +132,6 @@ public class MainActivity extends AppCompatActivity {
         ValueHolder.getInstance(getApplicationContext()).getQuotesWebService().getQuote(filter.name(), new Callback<QuoteDto>() {
             @Override
             public void onResponse(retrofit.Response<QuoteDto> response) {
-                quote = new Quote(response.body(), false);
-                setQuoteToView(quote);
                 loadingLayout.loadingSuccesssfull();
             }
 
@@ -140,10 +141,6 @@ public class MainActivity extends AppCompatActivity {
                 loadingLayout.loadingFailed(null);
             }
         });
-    }
-
-    private void setQuoteToView(Quote quoteDto) {
-        quoteView.bindTo(quoteDto);
     }
 
     @Override

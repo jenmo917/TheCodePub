@@ -25,6 +25,8 @@
     <string name="dialog_delete_text">This action will delete all your favorite quotes. Are you sure you want to do that?</string>
     <string name="caution">Caution</string>
     <string name="no_favorites">You have no favorites yet</string>
+    <string name="dummy_quote">I\'m a dummy quote, and you have to replace me sooner or later.</string>
+    <string name="dummy_quote_author">Dummy Author</string>
     <!-- END Various -->
 
 </resources>
