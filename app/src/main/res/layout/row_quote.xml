@@ -10,6 +10,7 @@
     android:orientation="vertical">
 
     <com.netlight.quotes.app.view.custom.QuoteView
+        android:id="@+id/quoteView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:quotecolor="@color/netlight_gold" />

@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.netlight.quotes.app.R;
 
+import com.netlight.quotes.app.model.db.Quote;
 import com.netlight.quotes.app.model.dto.QuoteDto;
 
 public class QuoteView extends RelativeLayout {
@@ -69,9 +70,9 @@ public class QuoteView extends RelativeLayout {
         imageViewQuoteByLine = (ImageView) findViewById(R.id.imageViewQuoteByLine);
     }
 
-    public void bindTo(QuoteDto quoteDto) {
-        textViewQuote.setText(quoteDto.getQuote());
-        textViewQuoteByLine.setText(quoteDto.getAuthor());
+    public void bindTo(Quote quote) {
+        textViewQuote.setText(quote.getQuote());
+        textViewQuoteByLine.setText(quote.getAuthor());
     }
 
     public void setQuoteColor(int color) {

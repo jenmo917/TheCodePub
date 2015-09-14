@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.netlight.quotes.app.R;
 import com.netlight.quotes.app.model.db.Quote;
+import com.netlight.quotes.app.view.custom.QuoteView;
 
 import java.util.List;
 
@@ -34,6 +35,11 @@ public class QuotesAdapter extends RecyclerView.Adapter<QuotesAdapter.ViewHolder
         Quote quote = items.get(position);
         viewHolder.quote.setText(quote.getQuote());
         viewHolder.quoteByLine.setText(quote.getAuthor());
+
+        if(quote.getAuthor().equals(context.getResources().getString(R.string.yoda))) {
+            viewHolder.quoteView.setQuoteColor(R.color.yoda);
+        }
+
         setTopBottomMargin(position, viewHolder);
     }
 
@@ -60,6 +66,7 @@ public class QuotesAdapter extends RecyclerView.Adapter<QuotesAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        private final QuoteView quoteView;
         public LinearLayout layoutItemView;
         public final TextView quote;
         public final TextView quoteByLine;
@@ -69,6 +76,7 @@ public class QuotesAdapter extends RecyclerView.Adapter<QuotesAdapter.ViewHolder
             layoutItemView = (LinearLayout) itemView.findViewById(R.id.layoutItemView);
             quote = (TextView) itemView.findViewById(R.id.textViewQuote);
             quoteByLine = (TextView) itemView.findViewById(R.id.textViewQuoteByLine);
+            quoteView = (QuoteView) itemView.findViewById(R.id.quoteView);
         }
     }
 }

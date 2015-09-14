@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonDislike;
     private Button buttonLike;
     private QuoteView quoteView;
-    private QuoteDto quote;
+    private Quote quote;
     private YodaButton buttonYodafy;
     LoadingLayout loadingLayout;
     private Filter filter = Filter.movies;
@@ -93,13 +93,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void yodafyQuote(final QuoteDto quote) {
+    private void yodafyQuote(Quote quote) {
         ValueHolder.getInstance(getApplicationContext()).getYodaWebService().yodafy(quote.getQuote(), new Callback<String>() {
 
             @Override
             public void onResponse(Response<String> response) {
                 String quoteText = response.body();
-                setYodaQuoteToView(quoteText, quote);
+                setYodaQuoteToView(quoteText);
                 loadingLayout.loadingSuccesssfull();
             }
 
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setYodaQuoteToView(String quoteText, QuoteDto quote) {
+    private void setYodaQuoteToView(String quoteText) {
         quote.setQuote(quoteText);
         quote.setAuthor(getResources().getString(R.string.yoda));
         quote.setCategory(getResources().getString(R.string.star_wars));
@@ -119,7 +119,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void saveQuoteToDb() {
-        Quote quote = new Quote(this.quote);
         new SaveQuoteAsyncTask(getApplicationContext()).execute(quote);
     }
 
@@ -129,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         ValueHolder.getInstance(getApplicationContext()).getQuotesWebService().getQuote(filter.name(), new Callback<QuoteDto>() {
             @Override
             public void onResponse(retrofit.Response<QuoteDto> response) {
-                quote = response.body();
+                quote = new Quote(response.body());
                 setQuoteToView(quote);
                 loadingLayout.loadingSuccesssfull();
             }
@@ -142,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void setQuoteToView(QuoteDto quoteDto) {
+    private void setQuoteToView(Quote quoteDto) {
         quoteView.bindTo(quoteDto);
     }
 
