@@ -23,7 +23,6 @@ public class LoadingLayout extends FrameLayout {
     private Button buttonRetry;
     private TextView textViewLoadingInfo;
     private LoadingListener loadingListener;
-    private LoadingEventListener loadingEventListener;
     private boolean isLoading;
 
     public boolean isLoading() {
@@ -32,12 +31,6 @@ public class LoadingLayout extends FrameLayout {
 
     public interface LoadingListener {
         void OnRetryPressed();
-    }
-
-    public interface LoadingEventListener {
-        void onLoading();
-
-        void onLoadingSuccess();
     }
 
     public LoadingLayout(final Context context) {
@@ -75,16 +68,11 @@ public class LoadingLayout extends FrameLayout {
         layoutLoadingInfo = (FrameLayout) findViewById(R.id.layoutLoadingInfo);
         progressLoader = findViewById(R.id.progressLoader);
         buttonRetry = (Button) findViewById(R.id.buttonRetry);
-//        TypeFaceUtil.setFontToTextView(getContext(), buttonRetry, FontEnum.LIGHT);
         textViewLoadingInfo = (TextView) findViewById(R.id.textViewLoadingInfo);
-//        TypeFaceUtil.setFontToTextView(getContext(), textViewLoadingInfo, FontEnum.LIGHT);
     }
 
     public void loadingStart() {
         isLoading = true;
-        if (loadingEventListener != null) {
-            loadingEventListener.onLoading();
-        }
         progressLoader.setVisibility(View.VISIBLE);
         buttonRetry.setVisibility(View.GONE);
         textViewLoadingInfo.setVisibility(View.GONE);
@@ -94,9 +82,6 @@ public class LoadingLayout extends FrameLayout {
 
     public void loadingSuccesssfull() {
         isLoading = false;
-        if (loadingEventListener != null) {
-            loadingEventListener.onLoadingSuccess();
-        }
         progressLoader.setVisibility(View.GONE);
         buttonRetry.setVisibility(View.GONE);
         textViewLoadingInfo.setVisibility(View.GONE);
@@ -118,36 +103,6 @@ public class LoadingLayout extends FrameLayout {
         buttonRetry.requestFocus();
         layoutLoadingInfo.setVisibility(View.INVISIBLE);
         layoutContent.setVisibility(View.GONE);
-    }
-
-    public void focusRetryButton() {
-        boolean buttonRetryVisible = buttonRetry.getVisibility() == View.VISIBLE;
-        if (buttonRetryVisible) {
-            buttonRetry.requestFocus();
-        }
-    }
-
-    public void loadingEmpty(String infoMessage) {
-        if (infoMessage != null) {
-            textViewLoadingInfo.setText(infoMessage);
-        } else {
-            textViewLoadingInfo.setText(R.string.no_data);
-        }
-
-        progressLoader.setVisibility(View.GONE);
-        buttonRetry.setVisibility(View.GONE);
-        textViewLoadingInfo.setVisibility(View.VISIBLE);
-        layoutLoadingInfo.setVisibility(View.GONE);
-        layoutContent.setVisibility(View.INVISIBLE);
-    }
-
-    public void loadingWithView(int viewId) {
-        progressLoader.setVisibility(View.GONE);
-        buttonRetry.setVisibility(View.GONE);
-        textViewLoadingInfo.setVisibility(View.GONE);
-        layoutLoadingInfo.setVisibility(View.VISIBLE);
-        LayoutInflater.from(getContext()).inflate(viewId, layoutLoadingInfo, true);
-        layoutContent.setVisibility(View.INVISIBLE);
     }
 
     public void setLoadingListener(LoadingListener loadingListener) {
@@ -198,9 +153,4 @@ public class LoadingLayout extends FrameLayout {
             layoutContent.addView(child, index);
         }
     }
-
-    public void setLoadingEventListener(LoadingEventListener loadingEventListener) {
-        this.loadingEventListener = loadingEventListener;
-    }
-
 }
